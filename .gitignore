@@ -16,5 +16,5 @@ __pycache__/
 *.bundle
 manifest.json
 
-# �ɲֿⱸ��
+# 旧仓库备份
 .git.backup-*/
