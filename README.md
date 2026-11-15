@@ -61,12 +61,14 @@ python infer.py figures/sample.png --variant ds --seed 17 --output results/struc
 
 ## 提交与代码仓库
 
-当前源码、训练记录与报告在本项目目录。数据集和权重由Git忽略。submission.bundle是原ResNet20与SE实验的Git快照，新增实验从当前目录运行。项目GitHub/Gitee远程地址待提供。
+代码仓库：https://github.com/Li527304/resnet20-fashion-mnist
 
-获得空仓库地址后，在本目录运行：
+当前源码、训练记录与报告在本项目目录。数据集和权重由Git忽略（`.gitignore` 已排除 `data/`、`results/`、`figures/`、`scene_images/` 及权重文件）。仓库只包含源码与运行说明；训练数据会在首次运行 `train.py` 时自动下载，权重需运行 `train.py` 生成，或从完整交付包中把各 `best.pt` 复制到对应 `results/{模型}_{种子}/` 目录。
+
+在本目录推送到该仓库：
 
 ```powershell
-git remote add origin <你的GitHub或Gitee仓库地址>
+git remote add origin https://github.com/Li527304/resnet20-fashion-mnist.git
 git push -u origin main
 ```
 
