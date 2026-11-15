@@ -1,4 +1,4 @@
-"""Shared inference path for command line and local demo."""
+# 命令行和网页共用的推理流程
 import argparse,json
 from pathlib import Path
 import numpy as np

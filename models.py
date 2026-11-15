@@ -1,4 +1,4 @@
-"""CIFAR-style ResNet20, option-A shortcuts; grayscale input adaptation."""
+# ResNet20 本体，另外带 SE、深度可分离、GELU、GroupNorm 四种变体
 import torch
 from torch import nn
 from torch.nn import functional as F
@@ -78,7 +78,7 @@ class ResNet20(nn.Module):
 
 
 def profile(model,device):
-    """MACs count only Conv2d/Linear; one MAC = one multiply-accumulate."""
+    # 只统计卷积和全连接，一次乘加算 1 个 MAC
     total=[0]; handles=[]
     def hook(m,inp,out):
         if isinstance(m,nn.Conv2d):

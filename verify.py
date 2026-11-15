@@ -1,4 +1,4 @@
-"""Recompute all stored predictions from checkpoints and check reported metrics."""
+# 重新推理一遍，核对保存的预测、指标和权重哈希
 import argparse, json, hashlib
 from pathlib import Path
 import numpy as np
@@ -9,7 +9,7 @@ from torchvision.datasets import FashionMNIST
 from models import profile
 
 def main():
-    parser = argparse.ArgumentParser(description=__doc__)
+    parser = argparse.ArgumentParser(description='重新推理并核对保存的结果')
     parser.add_argument('--results-dir', type=Path, default=ROOT/'results')
     results_dir = ROOT / parser.parse_args().results_dir
     torch.set_num_threads(4);torch.backends.cudnn.benchmark=False;torch.backends.cudnn.deterministic=True

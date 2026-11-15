@@ -1,4 +1,4 @@
-"""Train all preregistered runs. Test set is evaluated after checkpoint selection."""
+# 训练入口：按验证集挑最好的一轮，训完再跑测试集
 import os
 os.environ.setdefault('CUBLAS_WORKSPACE_CONFIG',':4096:8')
 import argparse, csv, hashlib, json, platform, random, time
@@ -61,7 +61,7 @@ def main():
             model=ResNet20(variant).to(device); params,macs=profile(model,device)
             opt=torch.optim.AdamW(model.parameters(),lr=.002,weight_decay=.0001)
             scheduler=torch.optim.lr_scheduler.CosineAnnealingLR(opt,T_max=args.epochs)
-            # Independent permutation stream gives every architecture identical minibatch orders.
+            # 每个模型用同一条打乱顺序，保证小批次划分一致
             order_gen=torch.Generator().manual_seed(seed)
             history=[]; best=-1; best_epoch=0; started=time.perf_counter()
             for epoch in range(1,args.epochs+1):

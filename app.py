@@ -1,4 +1,4 @@
-"""Local-only demonstration: actual checkpoint inference, no external API."""
+# 本地演示服务，只监听 127.0.0.1
 import base64,io,json,webbrowser,argparse
 from http.server import BaseHTTPRequestHandler,HTTPServer
 from PIL import Image, ImageOps
